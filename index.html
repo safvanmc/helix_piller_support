@@ -66,14 +66,24 @@
         var submit = document.getElementById("submit");
         var loading = document.getElementById("loading");
         form.onsubmit = function() {
+           event.preventDefault(); // Prevents the page from reloading
+            
+            // Show loading text
             submit.style.display = "none";
             loading.style.display = "block";
+
+            // Simulate submission delay
             setTimeout(function() {
-                form.reset();
+                form.reset(); // Clear the form fields
                 submit.style.display = "block";
                 loading.style.display = "none";
+                successMessage.style.display = "block"; // Show success message
+
+                // Hide success message after 3 seconds
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 3000);
             }, 2000);
-            return true;
         }
     </script>
 </body>

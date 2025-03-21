@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helix Piller Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Helix Piller Support</h1>
+        <p>If you have any questions or need support, please fill out the form below.</p>
+        <form action="submit_form.php" method="POST" id="form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Question or Issue" required></textarea>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        <div id="loading" style="display: none;">Loading...</div>
+    </div>
+    <script>
+        var form = document.getElementById("form");
+        var submit = document.getElementById("submit");
+        var loading = document.getElementById("loading");
+        form.onsubmit = function() {
+            submit.style.display = "none";
+            loading.style.display = "block";
+            setTimeout(function() {
+                form.reset();
+                submit.style.display = "block";
+                loading.style.display = "none";
+            }, 2000);
+            return true;
+        }
+    </script>
+</body>
+</html>

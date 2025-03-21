@@ -53,20 +53,27 @@
     <div class="container">
         <h1>Helix Piller Support</h1>
         <p>If you have any questions or need support, please fill out the form below.</p>
-        <form action="submit_form.php" method="POST" id="form">
+        
+        <!-- Removed action and method -->
+        <form id="form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" rows="5" placeholder="Your Question or Issue" required></textarea>
             <button type="submit" id="submit">Submit</button>
         </form>
+
         <div id="loading" style="display: none;">Loading...</div>
+        <div id="success-message" style="display: none; color: green;">Form submitted successfully!</div>
     </div>
+
     <script>
         var form = document.getElementById("form");
         var submit = document.getElementById("submit");
         var loading = document.getElementById("loading");
-        form.onsubmit = function() {
-           event.preventDefault(); // Prevents the page from reloading
+        var successMessage = document.getElementById("success-message");
+
+        form.onsubmit = function(event) {
+            event.preventDefault(); // Prevents the page from reloading
             
             // Show loading text
             submit.style.display = "none";
